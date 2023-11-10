@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f3f3f3;
+        font-family: Arial, sans-serif;
+    }
+
+    #game {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #choices button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #choices button:hover {
+        background-color: #2980b9;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div id="game">
+    <h2>Rock Paper Scissors</h2>
+    <div id="choices">
+        <button onclick="playGame('rock')">Rock</button>
+        <button onclick="playGame('paper')">Paper</button>
+        <button onclick="playGame('scissors')">Scissors</button>
+    </div>
+    <div id="result"></div>
+</div>
+
+<script>
+function playGame(userChoice) {
+    var choices = ['rock', 'paper', 'scissors'];
+    var randomIndex = Math.floor(Math.random() * 3);
+    var computerChoice = choices[randomIndex];
+    var result = '';
+
+    if (userChoice === computerChoice) {
+        result = 'It\'s a tie!';
+    } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        result = 'You win!';
+    } else {
+        result = 'You lose!';
+    }
+
+    document.getElementById('
